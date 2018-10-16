@@ -5,7 +5,9 @@ struct UserInfo{
     3:string password,
     4:string realName,
     5:string mobile,
-    6:string email
+    6:string email,
+    7:string intro,
+    8:i32 stars
 }
 service UserService{
 
@@ -14,4 +16,6 @@ service UserService{
     UserInfo getUserByName(1:string username);
 
     void regiserUser(1:UserInfo userInfo);
+
+    UserInfo getTeacherById(1:i32 id);
 }

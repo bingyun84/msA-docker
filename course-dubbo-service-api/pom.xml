@@ -11,5 +11,12 @@
 
     <artifactId>course-dubbo-service-api</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.idig8</groupId>
+            <artifactId>user-thrift-service-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

@@ -27,4 +27,9 @@ public class UserServiceImpl implements UserService.Iface {
     public void regiserUser(UserInfo userInfo) throws TException {
         userMapper.registerUser(userInfo);
     }
+
+    @Override
+    public UserInfo getTeacherById(int id) throws TException {
+        return userMapper.getTeacherById(id);
+    }
 }
