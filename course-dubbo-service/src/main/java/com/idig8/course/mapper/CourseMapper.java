@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 /**
- * Created by Michael on 2017/11/3.
+ * Created by liming
  */
 @Mapper
 public interface CourseMapper {
@@ -16,6 +16,6 @@ public interface CourseMapper {
     @Select("select * from pe_course")
     List<CourseDTO> listCourse();
 
-    @Select("select user_id from pr_user_course where course_id=#{courseId}")
+    @Select("select user_id from pe_user_course where course_id=#{courseId}")
     Integer getCourseTeacher(@Param("courseId") int courseId);
 }

@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by Michael on 2017/10/30.
+ * Created by liming
  */
 @Component
 public class ServiceProvider {

@@ -3,7 +3,7 @@ package com.idig8.thrift.user.dto;
 import java.io.Serializable;
 
 /**
- * Created by Michael on 2017/10/30.
+ * Created by liming
  */
 public class UserDTO implements Serializable {
 

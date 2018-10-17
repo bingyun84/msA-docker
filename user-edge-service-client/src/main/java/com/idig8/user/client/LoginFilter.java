@@ -25,7 +25,7 @@ import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by Michael on 2017/10/31.
+ * Created by liming
  */
 public abstract class LoginFilter implements Filter {
 
@@ -67,7 +67,7 @@ public abstract class LoginFilter implements Filter {
         }
 
         if(userDTO==null) {
-            response.sendRedirect("http://www.mooc.com/user/login");
+            response.sendRedirect("http://127.0.0.1:8082/user/login");
             return;
         }
 

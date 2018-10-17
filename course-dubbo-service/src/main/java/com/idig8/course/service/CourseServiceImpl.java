@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 /**
- * Created by Michael on 2017/11/3.
+ * Created by liming
  */
 @Service
 public class CourseServiceImpl implements ICourseService {
