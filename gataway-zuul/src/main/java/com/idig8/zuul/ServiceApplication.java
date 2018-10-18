@@ -1,4 +1,4 @@
-package com.imooc.zuul;
+package com.idig8.zuul;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
