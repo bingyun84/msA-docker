@@ -42,13 +42,17 @@ public class UserController {
         try {
              userInfo = serviceProvider.getUserService().getUserByName(username);
         } catch (TException e) {
+            System.out.println("调用接口异常！");
             e.printStackTrace();
+            System.out.println(e.getMessage());
             return Response.USERNAME_PASSWORD_INVALID;
         }
         if (userInfo == null){
+            System.out.println("userInfo is null");
             return Response.USERNAME_PASSWORD_INVALID;
         }
         if(!userInfo.getPassword().equalsIgnoreCase(md5(password))){
+            System.out.println("密码不正确");
             return Response.USERNAME_PASSWORD_INVALID;
         }
 

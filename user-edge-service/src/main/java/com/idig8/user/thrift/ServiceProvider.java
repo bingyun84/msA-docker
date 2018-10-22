@@ -46,6 +46,7 @@ public class ServiceProvider {
             transport.open();
         } catch (TTransportException e) {
             e.printStackTrace();
+            System.out.println("接口调用："+e.getMessage());
             return null;
         }
         TProtocol protocol = new TBinaryProtocol(transport);

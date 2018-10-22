@@ -67,7 +67,7 @@ public abstract class LoginFilter implements Filter {
         }
 
         if(userDTO==null) {
-            response.sendRedirect("http://127.0.0.1:8082/user/login");
+            response.sendRedirect("http://127.0.0.1:8080/user/login");
             return;
         }
 
@@ -84,6 +84,7 @@ public abstract class LoginFilter implements Filter {
         String url = "http://"+userEdgeServiceAddr()+"/user/authentication";
 
         HttpClient client = new DefaultHttpClient();
+        System.out.print("url:"+url);
         HttpPost post = new HttpPost(url);
         post.addHeader("token", token);
         InputStream inputStream = null;
@@ -104,7 +105,9 @@ public abstract class LoginFilter implements Filter {
             return userDTO;
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.print("url:"+url);
         } finally {
+            System.out.print("url:"+url);
             if(inputStream!=null) {
                 try{
                     inputStream.close();

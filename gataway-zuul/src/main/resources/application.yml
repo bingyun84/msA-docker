@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway-zuu
+  cloud:
+    gateway:
+      routes:
+      - id: course-edge-service
+        uri: http://course-edge-service:8081
+        predicates:
+        - Path=/course/**
+      - id: user-edge-service
+        uri: http://user-edge-service:8082
+        predicates:
+        - Path=/user/**
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
