@@ -1,4 +1,4 @@
-FROM python:3.6
+FROM hub.idig88.com:8888/micro-service/python:3.6
 MAINTAINER liming www.idig8.com
 
 RUN pip install thrift
