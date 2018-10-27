@@ -8,11 +8,11 @@ spring:
     gateway:
       routes:
       - id: course-edge-service
-        uri: http://course-edge-service:8081
+        uri: http://lb.idig88.com:10004
         predicates:
         - Path=/course/**
       - id: user-edge-service
-        uri: http://user-edge-service:8082
+        uri: http://lb.idig88.com:10003
         predicates:
         - Path=/user/**
 
