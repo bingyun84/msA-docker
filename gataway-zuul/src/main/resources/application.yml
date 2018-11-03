@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: gateway-zuu
+    name: gateway-zuul
   cloud:
     gateway:
       routes:

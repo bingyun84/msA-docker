@@ -1,0 +1,75 @@
+version: "3.4"
+services:
+  message-thrift-python-service:
+    image: zhugeaming/message-thrift-python-service:latest
+    deploy:
+      endpoint_mode: dnsrr
+      resources:
+        limits:
+          cpus: "0.2"
+          memory: "128M"
+
+  user-thrift-service:
+    image: zhugeaming/user-thrift-service:latest
+    deploy:
+      endpoint_mode: dnsrr
+      resources:
+        limits:
+          cpus: "0.2"
+          memory: "512M"
+
+  user-edge-service:
+    image: zhugeaming/user-edge-service:latest
+    deploy:
+      endpoint_mode: vip
+      resources:
+        limits:
+          cpus: "0.2"
+          memory: "512M"
+    ports:
+    - "8082:8082"
+    depends_on:
+    - user-thrift-service
+    - message-thrift-python-service
+
+  course-dubbo-service:
+    image: zhugeaming/user-edge-service:latest
+    deploy:
+      endpoint_mode: dnsrr
+      resources:
+        limits:
+          cpus: "0.2"
+          memory: "512M"
+    depends_on:
+    - user-thrift-service
+
+  course-edge-service:
+    image: zhugeaming/course-edge-service:latest
+    deploy:
+      endpoint_mode: vip
+      resources:
+        limits:
+          cpus: "0.2"
+          memory: "512M"
+    ports:
+    - "8081:8081"
+    depends_on:
+    - user-edge-service
+  gateway-zuul:
+    image: zhugeaming/gataway-zuul:latest
+    deploy:
+      endpoint_mode: vip
+      resources:
+        limits:
+          cpus: "0.2"
+          memory: "512M"
+    ports:
+    - "8080:8080"
+    depends_on:
+    - user-edge-service
+    - course-edge-service
+
+networks:
+  default:
+    external:
+      name: idig8-overlay
